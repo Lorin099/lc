@@ -7,47 +7,20 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: url(imagens/TorcidaAtletico.jpg);
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-        }
-        header {
-            background-color: antiquewhite;
-            color: white;
-            text-align: center;
-            width: 100%;
-            padding: 20px;
-            margin-top: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        footer{
-            margin-bottom: auto;
-            background-color: antiquewhite;
-            color: white;
-            text-align: center;
-            width: 100%;
-            padding: 10px;
-        }
-        img{
-            width: 100%;
-            height: 500px;
-        }
+       
         .card-img-top {
             height: 500px;
             width: 100%;
             object-fit: contain;
             background-color: white;
+        }
+        .carousel .card{
+            height:100%;
+        }
+        .carousel .card.body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
     </style>
@@ -167,6 +140,8 @@
     </div>
 </div>
 
+
+
 <div class="container pb-5">
     <h2 class="text-ligth mb-4">Camisas</h2>
 
@@ -175,34 +150,133 @@
             <div class="carousel-item active">
 
             
-            <div class="row g-3"></div>
+            <div class="row g-3">
             
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="imagens/copo-do-atletico.png" class="card-img-top" alt="">
+                        <div class="card-body text-center">
+                            <h6>galo</h6>
+                            <p class="text-muted text-decoration-line-through">R$359,90</p>
+                            <div class="alert alert-success py-1">R$289,90</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="imagens/chaveiro-de-ouro-galo.png" class="card-img-top" alt="">
+                        <div class="card-body text-center">
+                            <h6>galo</h6>
+                            <p class="text-muted text-decoration-line-through">R$359,90</p>
+                            <div class="alert alert-success py-1">R$289,90</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="imagens/garrafa.png" class="card-img-top" alt="">
+                        <div class="card-body text-center">
+                            <h6>galo</h6>
+                            <p class="text-muted text-decoration-line-through">R$359,90</p>
+                            <div class="alert alert-success py-1">R$289,90 </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="imagens/bola-do-galo.png" class="card-img-top" alt="">
+                        <div class="card-body text-center">
+                            <h6>galo</h6>
+                            <p class="text-muted text-decoration-line-through">R$359,90</p>
+                            <div class="alert alert-success py-1">R$289,90</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            </div>
+             <div class="carousel-item active">
+
+                 <div class="row g-3">
+
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="imagens/taça-do-galo.webp" class="card-img-top" alt="">
+                        <div class="card-body text-center">
+                            <h6>galo</h6>
+                            <p class="text-muted text-decoration-line-through">R$359,90</p>
+                            <div class="alert alert-success py-1">R$289,90 </div>
+
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-6 col-md-3">
                     <div class="card">
                         <img src="imagens/Hulk.jpg" class="card-img-top" alt="">
                         <div class="card-body text-center">
                             <h6>galo</h6>
-                            <p class="text-muted text-decoration-line-through">R$359,90
-                            </p>
-                            <div class="alert alert-success py-1">R$289,90
-                            </div>
+                            <p class="text-muted text-decoration-line-through">R$359,90</p>
+                            <div class="alert alert-success py-1">R$289,90</div>
 
                         </div>
                     </div>
                 </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="imagens/Hulk.jpg" class="card-img-top" alt="">
+                        <div class="card-body text-center">
+                            <h6>galo</h6>
+                            <p class="text-muted text-decoration-line-through">R$359,90</p>
+                            <div class="alert alert-success py-1">R$289,90</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="imagens/Hulk.jpg" class="card-img-top" alt="">
+                        <div class="card-body text-center">
+                            <h6>galo</h6>
+                            <p class="text-muted text-decoration-line-through">R$359,90</p>
+                            <div class="alert alert-success py-1">R$289,90</div>
+
+                        </div>
+                    </div>
+                </div>
+
+
              </div>
             </div>
-            </div>
+
         </div>
-    </div>
-</div>
+            
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProdutos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselProdutos" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        </div>
+
 
 <footer class="bg-white text-dark py-4 mt-auto">
     <div class="container text-center">
         &copy; 2026 Atletico Mineiro. Todos os Direitos Reservados.
     </div>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
