@@ -112,7 +112,7 @@
 
     <div class="col-md-3 mb-3">
         <label class="form-label">Horário</label>
-        <input type="time" class="form-control" id="frequencia" placeholder="2x ao dia">
+        <input type="time" class="form-control" id="horario" placeholder="2x ao dia">
     </div>
 
 </div>
@@ -124,7 +124,17 @@
                     </button>
                 </div>
             </form>
+            <!-- Caixa de Resultado -->
+<div id="resultado" class="alert alert-secondary d-none text-center"></div>
+
         </div>
+
+        <div id="resultado" class="alert alert-secondary d-none text-center"></div>
+
+<!-- Mensagem de sucesso -->
+<div id="mensagem" class="alert alert-success d-none text-center mt-3">
+    ✅ Prontuário salvo com sucesso!
+</div>
 
         <script>
 document.querySelector(".formulario").addEventListener("submit", function(e) {
@@ -147,10 +157,33 @@ document.querySelector(".formulario").addEventListener("submit", function(e) {
         medicacao: {
             medicamento: document.getElementById("medicamento").value,
             dosagem: document.getElementById("dosagem").value,
-            frequencia: document.getElementById("frequencia").value
-            horário: document.getElementById("horário").value
+            frequencia: document.getElementById("frequencia").value,
+            horario: document.getElementById("horario").value
         }
     };
+
+    let resultado = `
+<h5>Prontuário do Paciente</h5>
+Nome: ${prontuario.nome} <br>
+Idade: ${prontuario.idade} <br>
+Sexo: ${prontuario.sexo} <br>
+
+Pressão Arterial: ${prontuario.sinaisVitais.pressao} <br>
+Temperatura: ${prontuario.sinaisVitais.temperatura} <br>
+Frequência Cardíaca: ${prontuario.sinaisVitais.fc} <br>
+Saturação: ${prontuario.sinaisVitais.spo2} <br>
+
+Evolução: ${prontuario.evolucao} <br>
+
+Medicamento: ${prontuario.medicacao.medicamento} <br>
+Dosagem: ${prontuario.medicacao.dosagem} <br>
+Frequência: ${prontuario.medicacao.frequencia} <br>
+Horario: ${prontuario.medicacao.horario}
+`;
+
+let caixa = document.getElementById("resultado");
+caixa.innerHTML = resultado;
+caixa.classList.remove("d-none");
 
     console.log(prontuario);
 
@@ -158,6 +191,27 @@ document.querySelector(".formulario").addEventListener("submit", function(e) {
 
     alert("Prontuário salvo com sucesso!");
 });
+
+let mensagem = document.getElementById("mensagem");
+mensagem.classList.remove("d-none");
+caixa.innerHTML = resultado;
+caixa.classList.remove("d-none");
+
+let mensagem = document.getElementById("mensagem");
+mensagem.classList.remove("d-none");
+
+caixa.scrollIntoView({ behavior: "smooth" });
+
+let caixa = document.getElementById("resultado");
+caixa.innerHTML = resultado;
+caixa.classList.remove("d-none");
+
+// mostrar mensagem verde
+let mensagem = document.getElementById("mensagem");
+mensagem.classList.remove("d-none");
+
+// rolar a tela até o resultado
+caixa.scrollIntoView({ behavior: "smooth" });
 </script>
 
     </body>
