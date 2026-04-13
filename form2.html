@@ -19,11 +19,11 @@
 
         <div class="container mt-4">
             <form class="formulario" >
-        <!--Dados do Paciente-->
-                <div class="card mb-4">
-                <div class="card-header bg-info text-white text-center">
-                Dados do paciente
-                </div>
+        <!-- Dados do Paciente-->
+<div class="card mb-4 shadow-sm rounded-4">
+<div class="card-header bg-primary text-white text-center fw-bold">
+<i class="bi bi-person"></i> Dados do Paciente
+</div>
                 <div class="card-body">
                 <div class="row">
 
@@ -49,10 +49,10 @@
 </div>
                 </div>
                 <!--Sinais Vitais-->
-                <div class="card mb-4">
-                    <div class="card-header bg-info text-white text-center">
-                        Sinais Vitais
-                    </div>
+                <div class="card mb-4 shadow-sm rounded-4">
+<div class="card-header bg-danger text-white text-center fw-bold">
+<i class="bi bi-heart-pulse"></i> Sinais Vitais
+</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 mb-3">
@@ -78,20 +78,20 @@
                      </div>
                 </div>
                 <!--Evolução-->
-                <div class="card mb-4">
-                    <div class="card-header bg-info text-white text-center">
-                        Evolução do Paciente
-                    </div>
+                <div class="card mb-4 shadow-sm rounded-4">
+<div class="card-header bg-warning text-dark text-center fw-bold">
+<i class="bi bi-journal-text"></i> Evolução do Paciente
+</div>
                     <div class="mb-3">
     <label class="form-label">Evolução / Observações</label>
     <textarea class="form-control" id="evolucao" rows="4"></textarea>
 </div>
                 </div>
                 <!--Medicação-->
-                <div class="card mb-4">
-                    <div class="card-header bg-info text-white text-center">
-                        Medicação
-                    </div>
+                <div class="card mb-4 shadow-sm rounded-4">
+<div class="card-header bg-success text-white text-center fw-bold">
+<i class="bi bi-capsule"></i> Medicação
+</div>
                     <div class="card-body">
                         <div class="row">
 
@@ -120,22 +120,30 @@
                 </div>
                 <!--Botão-->
                 <div class="text-end mb-5">
-                    <button class="btn btn-primary" type="submit"> Salvar Prontuário
-                    </button>
-                </div>
+<button class="btn btn-success btn-lg shadow">
+<i class="bi bi-save"></i> Salvar Prontuário
+</button>
+</div>
             </form>
             <!-- Caixa de Resultado -->
-<div id="resultado" class="alert alert-secondary d-none text-center"></div>
-
-        </div>
-
-        <div id="resultado" class="alert alert-secondary d-none text-center"></div>
-
-<!-- Mensagem de sucesso -->
-<div id="mensagem" class="alert alert-success d-none text-center mt-3">
-    ✅ Prontuário salvo com sucesso!
+<div id="resultado" class="card shadow d-none">
+<div class="card-header bg-dark text-white">
+Resultado do Prontuário
+</div>
+<div class="card-body"></div>
+</div>
 </div>
 
+<!-- Mensagem de sucesso -->
+<div class="toast position-fixed bottom-0 end-0 p-3" id="toastSucesso">
+<div class="toast-header">
+<strong class="me-auto">Sistema</strong>
+<button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+</div>
+<div class="toast-body">
+Prontuário salvo com sucesso!
+</div>
+</div>
         <script>
 document.querySelector(".formulario").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -162,35 +170,27 @@ document.querySelector(".formulario").addEventListener("submit", function(e) {
         }
     };
 
-    let resultado = `
-<h5>Prontuário do Paciente</h5>
-Nome: ${prontuario.nome} <br>
-Idade: ${prontuario.idade} <br>
-Sexo: ${prontuario.sexo} <br>
+    document.querySelector(".formulario").addEventListener("submit", function(e)
 
-Pressão Arterial: ${prontuario.sinaisVitais.pressao} <br>
-Temperatura: ${prontuario.sinaisVitais.temperatura} <br>
-Frequência Cardíaca: ${prontuario.sinaisVitais.fc} <br>
-Saturação: ${prontuario.sinaisVitais.spo2} <br>
-
-Evolução: ${prontuario.evolucao} <br>
-
-Medicamento: ${prontuario.medicacao.medicamento} <br>
-Dosagem: ${prontuario.medicacao.dosagem} <br>
-Frequência: ${prontuario.medicacao.frequencia} <br>
-Horario: ${prontuario.medicacao.horario}
-`;
-
-let caixa = document.getElementById("resultado");
-caixa.innerHTML = resultado;
+ let resultado =
+<ul class="list-group">
+<li class="list-group-item"><strong>Nome:</strong> ${nome}</li>
+<li class="list-group-item"><strong>Idade:</strong> ${idade)}</li>
+<li class="list-group-item"><strong>Sexo:</strong> ${sexo}</li>
+<li class="list-group-item"><strong>Pressão:</strong> ${pressao}</li>
+<li class="list-group-item"><strong>Temperatura:</strong> ${temperatura}</li>
+<li class="list-group-item"><strong>Frequência:</strong> ${frequencia}</li>
+<li class="list-group-item"><strong>Saturação:</strong> ${saturacao}</li>
+<li class="list-group-item"><strong>Evolução:</strong> ${evolucao}</li>
+<li class="list-group-item"><strong>Medicamento:</strong> ${medicamento}</li>
+<li class="list-group-item"><strong>Dosagem:</strong> ${dosagem}</li>
+<li class="list-group-item"><strong>Horário:</strong> ${horario}</li>
+</ul>
+let caixa document.getElementById("resultado");
+caixa.querySelector(".card-body").innerHTML = resultado;
 caixa.classList.remove("d-none");
-
-    console.log(prontuario);
-
-    localStorage.setItem("prontuario", JSON.stringify(prontuario));
-
-    alert("Prontuário salvo com sucesso!");
-});
+let toast = new bootstrap. Toast (document.getElementById('toastSucesso'));
+toast.show();
 
 let mensagem = document.getElementById("mensagem");
 mensagem.classList.remove("d-none");
@@ -205,10 +205,6 @@ caixa.scrollIntoView({ behavior: "smooth" });
 let caixa = document.getElementById("resultado");
 caixa.innerHTML = resultado;
 caixa.classList.remove("d-none");
-
-// mostrar mensagem verde
-let mensagem = document.getElementById("mensagem");
-mensagem.classList.remove("d-none");
 
 // rolar a tela até o resultado
 caixa.scrollIntoView({ behavior: "smooth" });
